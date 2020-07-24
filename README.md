@@ -85,7 +85,8 @@ data: [
           {
               name: 'Storybook',
               quadrant: 'tools',
-              ring: "adopt"
+              ring: "adopt",
+              link: "https://storybook.js.org/"
           }
       ]
 }
@@ -127,6 +128,8 @@ __Example:__
 | itemFontSize     | Set this if you want the items to have a different size than titles of quadrants and rings. If not set, defaults to fontSize       | 12px      |
 | colorScaleIndex     | A value from 0 to 5 for different collections of colors. See [Storybook Color Schemes](https://react-tech-radar.netlify.com/?path=/story/color-schemes--with-1) section for colors of each option.      |5      |
 | radiusDiminish     | Radius of rings is not equal because of this constant. Each radius is x times greater than the outer one and x is this constant.      | 1.5      |
+| maxLengthText     | Max Length text of shortName descriptión      | 15      |
+
 
 #### Prop Types
 
@@ -139,7 +142,8 @@ Radar.propTypes = {
     fontSize: PropTypes.number,
     itemFontSize: PropTypes.number,
     colorScaleIndex: PropTypes.number,
-    radiusDiminish: PropTypes.number
+    radiusDiminish: PropTypes.number,
+    maxLengthText: PropTypes.number
 };
 ```
 
