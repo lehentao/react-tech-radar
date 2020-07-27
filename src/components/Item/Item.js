@@ -2,6 +2,7 @@
 
 function _typeof(obj) {
   '@babel/helpers - typeof';
+
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
       return typeof obj;
@@ -16,6 +17,7 @@ function _typeof(obj) {
         : typeof obj;
     };
   }
+
   return _typeof(obj);
 }
 
@@ -33,15 +35,21 @@ var _themeContext = require('../theme-context');
 var _propTypes = _interopRequireDefault(require('prop-types'));
 
 function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
+  return obj && obj.__esModule
+    ? obj
+    : {
+        default: obj
+      };
 }
 
 function _getRequireWildcardCache() {
   if (typeof WeakMap !== 'function') return null;
   var cache = new WeakMap();
+
   _getRequireWildcardCache = function _getRequireWildcardCache() {
     return cache;
   };
+
   return cache;
 }
 
@@ -49,24 +57,32 @@ function _interopRequireWildcard(obj) {
   if (obj && obj.__esModule) {
     return obj;
   }
+
   if (
     obj === null ||
     (_typeof(obj) !== 'object' && typeof obj !== 'function')
   ) {
-    return { default: obj };
+    return {
+      default: obj
+    };
   }
+
   var cache = _getRequireWildcardCache();
+
   if (cache && cache.has(obj)) {
     return cache.get(obj);
   }
+
   var newObj = {};
   var hasPropertyDescriptor =
     Object.defineProperty && Object.getOwnPropertyDescriptor;
+
   for (var key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       var desc = hasPropertyDescriptor
         ? Object.getOwnPropertyDescriptor(obj, key)
         : null;
+
       if (desc && (desc.get || desc.set)) {
         Object.defineProperty(newObj, key, desc);
       } else {
@@ -74,10 +90,13 @@ function _interopRequireWildcard(obj) {
       }
     }
   }
+
   newObj.default = obj;
+
   if (cache) {
     cache.set(obj, newObj);
   }
+
   return newObj;
 }
 
@@ -108,9 +127,11 @@ function _unsupportedIterableToArray(o, minLen) {
 
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
+
   for (var i = 0, arr2 = new Array(len); i < len; i++) {
     arr2[i] = arr[i];
   }
+
   return arr2;
 }
 
@@ -121,6 +142,7 @@ function _iterableToArrayLimit(arr, i) {
   var _n = true;
   var _d = false;
   var _e = undefined;
+
   try {
     for (
       var _i = arr[Symbol.iterator](), _s;
@@ -128,6 +150,7 @@ function _iterableToArrayLimit(arr, i) {
       _n = true
     ) {
       _arr.push(_s.value);
+
       if (i && _arr.length === i) break;
     }
   } catch (err) {
@@ -140,6 +163,7 @@ function _iterableToArrayLimit(arr, i) {
       if (_d) throw _e;
     }
   }
+
   return _arr;
 }
 
@@ -163,7 +187,6 @@ function Item(props) {
     setIsHovered = _useState2[1];
 
   var maxLength = props.data.maxLength || MAX_LENGTH;
-
   var shortName =
     props.data.name.length > maxLength
       ? props.data.name.substr(0, maxLength) + '...'
@@ -218,11 +241,11 @@ function Item(props) {
               href: props.data.link,
               target: '_blank'
             },
-            isHovered ? props.data.name : shortName
+            (props.data.index ? `${props.data.index}. ` : '') +
+              (isHovered ? props.data.name : shortName)
           )
-        : isHovered
-        ? props.data.name
-        : shortName
+        : (props.data.index ? `${props.data.index}. ` : '') +
+            (isHovered ? props.data.name : shortName)
     )
   );
 }

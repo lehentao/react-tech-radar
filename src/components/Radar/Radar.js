@@ -2,6 +2,7 @@
 
 function _typeof(obj) {
   '@babel/helpers - typeof';
+
   if (typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol') {
     _typeof = function _typeof(obj) {
       return typeof obj;
@@ -16,6 +17,7 @@ function _typeof(obj) {
         : typeof obj;
     };
   }
+
   return _typeof(obj);
 }
 
@@ -35,15 +37,21 @@ var _Quadrant = _interopRequireDefault(require('../Quadrant/Quadrant'));
 var _themeContext = require('../theme-context');
 
 function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
+  return obj && obj.__esModule
+    ? obj
+    : {
+        default: obj
+      };
 }
 
 function _getRequireWildcardCache() {
   if (typeof WeakMap !== 'function') return null;
   var cache = new WeakMap();
+
   _getRequireWildcardCache = function _getRequireWildcardCache() {
     return cache;
   };
+
   return cache;
 }
 
@@ -51,24 +59,32 @@ function _interopRequireWildcard(obj) {
   if (obj && obj.__esModule) {
     return obj;
   }
+
   if (
     obj === null ||
     (_typeof(obj) !== 'object' && typeof obj !== 'function')
   ) {
-    return { default: obj };
+    return {
+      default: obj
+    };
   }
+
   var cache = _getRequireWildcardCache();
+
   if (cache && cache.has(obj)) {
     return cache.get(obj);
   }
+
   var newObj = {};
   var hasPropertyDescriptor =
     Object.defineProperty && Object.getOwnPropertyDescriptor;
+
   for (var key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       var desc = hasPropertyDescriptor
         ? Object.getOwnPropertyDescriptor(obj, key)
         : null;
+
       if (desc && (desc.get || desc.set)) {
         Object.defineProperty(newObj, key, desc);
       } else {
@@ -76,15 +92,19 @@ function _interopRequireWildcard(obj) {
       }
     }
   }
+
   newObj.default = obj;
+
   if (cache) {
     cache.set(obj, newObj);
   }
+
   return newObj;
 }
 
 function _createForOfIteratorHelper(o, allowArrayLike) {
   var it;
+
   if (typeof Symbol === 'undefined' || o[Symbol.iterator] == null) {
     if (
       Array.isArray(o) ||
@@ -93,12 +113,20 @@ function _createForOfIteratorHelper(o, allowArrayLike) {
     ) {
       if (it) o = it;
       var i = 0;
+
       var F = function F() {};
+
       return {
         s: F,
         n: function n() {
-          if (i >= o.length) return { done: true };
-          return { done: false, value: o[i++] };
+          if (i >= o.length)
+            return {
+              done: true
+            };
+          return {
+            done: false,
+            value: o[i++]
+          };
         },
         e: function e(_e) {
           throw _e;
@@ -106,10 +134,12 @@ function _createForOfIteratorHelper(o, allowArrayLike) {
         f: F
       };
     }
+
     throw new TypeError(
       'Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
     );
   }
+
   var normalCompletion = true,
     didErr = false,
     err;
@@ -148,17 +178,18 @@ function _unsupportedIterableToArray(o, minLen) {
 
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
+
   for (var i = 0, arr2 = new Array(len); i < len; i++) {
     arr2[i] = arr[i];
   }
-  return arr2;
-}
 
-//when point coordinates are calculated randomly, sometimes point coordinates
+  return arr2;
+} //when point coordinates are calculated randomly, sometimes point coordinates
 // get so close that it would be hard to read the textual part. When such
 //collisions occur, the position generator retries. This constant defines the
 //number of trials where it has to stop.
-var MAX_COLLISION_RETRY_COUNT = 350; //This value is used to determine whether a collision retry should be triggered or not.
+
+var MAX_COLLISION_RETRY_COUNT = 500; //This value is used to determine whether a collision retry should be triggered or not.
 
 var TOLERANCE_CONSTANT = 6; //default radar width
 
@@ -171,6 +202,7 @@ var RIGHT_EXTENSION = 1.1;
 function Radar(props) {
   //manage optional variables
   var width = props.width || DEFAULT_WIDTH;
+  var canvanWidth = props.canvanWidth ? props.canvanWidth : width;
   var rings = props.rings || [''];
   var radiusDiminishConstant = props.radiusDiminish || RADIUS_DIMINISH_CONSTANT;
   var data = props.data || [];
@@ -233,6 +265,7 @@ function Radar(props) {
 
       var blip = {
         id: i,
+        index: entry.index,
         name: entry.name,
         quadrant: entry.quadrant,
         x: coordinates.x,
@@ -390,7 +423,7 @@ function Radar(props) {
       /*#__PURE__*/ _react.default.createElement(
         _Radar.RadarContents,
         {
-          width: width * RIGHT_EXTENSION,
+          width: canvanWidth * RIGHT_EXTENSION,
           height: width,
           style: {
             margin: margin
@@ -442,6 +475,7 @@ Radar.propTypes = {
   rings: _propTypes.default.array,
   data: _propTypes.default.array,
   width: _propTypes.default.number,
+  canvanWidth: _propTypes.default.number,
   fontSize: _propTypes.default.number,
   itemFontSize: _propTypes.default.number,
   colorScaleIndex: _propTypes.default.number,

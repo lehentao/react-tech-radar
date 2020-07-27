@@ -73,20 +73,23 @@ __Example:__
 {
 data: [
           {
+              index: 1,
               name: 'D3',
               quadrant: 'tools',
-              ring: "assess"
+              ring: 'assess'
           },
           {
+              index: 'b',
               name: 'TypeScript',
               quadrant: 'languages',
-              ring: "trial"
+              ring: 'trial'
           },
           {
+              index: 'C',
               name: 'Storybook',
               quadrant: 'tools',
-              ring: "adopt",
-              link: "https://storybook.js.org/"
+              ring: 'adopt',
+              link: 'https://storybook.js.org/'
           }
       ]
 }
@@ -123,7 +126,8 @@ __Example:__
 
 | Prop         | Description    | Default Value |
 | :---         |     :---      |          ---: |
-| width     | The overall width of the main DOM element       | 700px      |
+| width     | The overall width of the radar DOM element       | 700px      |
+| canvanWidth     | The overall width of the main DOM element       | 700px      |
 | fontSize     | Font size of elements       | 12px      |
 | itemFontSize     | Set this if you want the items to have a different size than titles of quadrants and rings. If not set, defaults to fontSize       | 12px      |
 | colorScaleIndex     | A value from 0 to 5 for different collections of colors. See [Storybook Color Schemes](https://react-tech-radar.netlify.com/?path=/story/color-schemes--with-1) section for colors of each option.      |5      |
@@ -139,6 +143,7 @@ Radar.propTypes = {
     rings: PropTypes.array,
     data: PropTypes.array,
     width: PropTypes.number,
+    canvanWidth: PropTypes.number,
     fontSize: PropTypes.number,
     itemFontSize: PropTypes.number,
     colorScaleIndex: PropTypes.number,
