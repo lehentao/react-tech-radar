@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import { useContext } from 'react';
 import * as d3 from "d3";
 import {ThemeContext} from "../theme-context";
 import PropTypes from "prop-types";

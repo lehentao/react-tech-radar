@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import { createRef, useContext } from 'react';
 import Text from "../Text/Text";
 import Path from "../Path/Path";
 import Line from "../Line/Line";
@@ -15,7 +15,7 @@ function Quadrant(props) {
     //optional variables
     const radiusDiminishConstant = props.radiusDiminish;
 
-    let ref = React.createRef();
+    let ref = createRef();
     const ringWidth = props.width / 2;
     const radialAngle = 2 * Math.PI / 360 * props.angle;
 

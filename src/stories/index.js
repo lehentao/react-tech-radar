@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {storiesOf} from '@storybook/react';
 import Radar from "../components/Radar/Radar";
 import GoogleSpreadSheetDemo from "../../examples/google-spreadsheet/GoogleSpreadsheetDemo";

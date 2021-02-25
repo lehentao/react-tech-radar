@@ -1,7 +1,7 @@
 {
   "name": "react-tech-radar",
   "description": "A React Component for Tech Radar inspired by ThoughtWorks' technology decision sharing project",
-  "version": "0.1.31",
+  "version": "1.0.2",
   "author": "Gonzalo Richiardi <lehentao@gmail.com> fork of Omer Gurarslan <omerg@lucidcode.com.tr> (https://omerg.info)",
   "repository": {
     "type": "git",
@@ -17,8 +17,13 @@
   "module": "dist/index.js",
   "babel": {
     "presets": [
-      "@babel/preset-react",
-      "@babel/preset-env"
+      "@babel/preset-env",
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
     ],
     "plugins": [
       [
@@ -30,15 +35,15 @@
     ]
   },
   "dependencies": {
-    "d3": "^5.9.7",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-components": "^4.3.2"
+    "d3": "^6.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
   },
   "peerDependencies": {
     "styled-components": ">= 4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,7 +51,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "check-updates": "node node_modules/npm-check/bin/cli.js -u",
+    "check-libraries": "node node_modules/npm-check/bin/cli.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -64,19 +71,20 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-actions": "^5.1.9",
-    "@storybook/addon-console": "^1.2.1",
-    "@storybook/addon-links": "^5.1.9",
-    "@storybook/addons": "^5.1.9",
-    "@storybook/react": "^5.1.9",
-    "@storybook/theming": "latest",
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.1",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.5",
+    "@babel/preset-react": "^7.12.13",
+    "@storybook/addon-actions": "^6.1.20",
+    "@storybook/addon-console": "^1.2.3",
+    "@storybook/addon-links": "^6.1.20",
+    "@storybook/addons": "^6.1.20",
+    "@storybook/react": "^6.1.20",
+    "@sto rybook/theming": "latest",
+    "npm-check": "^5.9.2",
     "prop-types": "^15.7.2",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^4.0.3",
     "tabletop": "^1.5.2"
   }
 }

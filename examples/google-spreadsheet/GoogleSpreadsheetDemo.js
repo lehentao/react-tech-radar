@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 import * as Tabletop from "tabletop";
 import Radar from "../../src/components/Radar/Radar";

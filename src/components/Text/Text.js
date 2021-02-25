@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import { useContext } from 'react';
 import TextWrapper from "./Text.style";
 import {ThemeContext} from "../theme-context";
 

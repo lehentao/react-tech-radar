@@ -1,4 +1,4 @@
-import * as React from "react";
+import { createContext } from "react";
 import * as d3 from "d3";
 
 export const colorScales = [
@@ -28,7 +28,7 @@ export function getColorScale(colorScaleIndex) {
     return d3.scaleOrdinal(d3[colorScales[colorScaleIndex].name]);
 }
 
-export const ThemeContext = React.createContext({
+export const ThemeContext = createContext({
     colorScale: DEFAULT_COLOR_SCALE,
     fontFamily: DEFAULT_FONT_FAMILY,
     fontSize: DEFAULT_FONT_SIZE,

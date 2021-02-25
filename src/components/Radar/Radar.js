@@ -1,5 +1,4 @@
-'use strict';
-
+/* eslint-disable no-func-assign */
 function _typeof(obj) {
   '@babel/helpers - typeof';
 
